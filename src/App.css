@@ -8,10 +8,17 @@
   padding: 10px;
 }
 
+.title {
+  color: #c6cdd5;
+  text-align: center;
+  
+}
+
 main {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   background: #0d1117;
   min-height: calc(100vh - 60px);
 }
@@ -41,4 +48,9 @@ main {
 
 .celda:hover {
   background-color: #4A98F7;
+}
+
+.turn-message {
+  color: #c6cdd5;
+  margin-bottom: 10px;
 }

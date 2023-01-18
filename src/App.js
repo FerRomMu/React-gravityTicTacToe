@@ -1,6 +1,8 @@
 import './App.css';
 
 const tablero = Array(3).fill(Array(3).fill('  '))
+const isTurn = true
+const jugador = 'X'
 
 const drawFila = (f) => {
   return <div className='fila'> { 
@@ -28,6 +30,11 @@ function App() {
         <h1 className='title'>Gravity TicTacToe</h1>
       </header>
       <main>
+        <h2 className='turn-message'> 
+          { isTurn? 
+              "Es turno de " + jugador : " Resolviendo turno... "
+          }
+        </h2>
         { drawTablero() }
       </main>
     </>
