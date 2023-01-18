@@ -1,24 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+
+const tablero = Array(3).fill(Array(3).fill('  '))
+
+const drawFila = (f) => {
+  return <div className='fila'> { 
+    f.map((celda) => {
+      return <div className='celda'><p>{celda}</p></div>
+    })
+  }
+  </div>
+}
+
+const drawTablero = () => {
+  return (
+    <section className="tablero">
+      { tablero.map((fila) => {
+        return drawFila(fila)
+      })}
+    </section>
+  )
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <header className='header'>
+        <h1 className='title'>Gravity TicTacToe</h1>
       </header>
-    </div>
+      <main>
+        { drawTablero() }
+      </main>
+    </>
   );
 }
 
