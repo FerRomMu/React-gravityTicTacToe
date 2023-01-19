@@ -10,6 +10,7 @@ function App() {
     (Array(3).fill(' ')),
     (Array(3).fill(' '))
   ])
+  const [winner, setWinner] = useState(null)
 
   const cellClick = (r,c) => {
     if(!isTurn) return
@@ -18,7 +19,9 @@ function App() {
     setTurn(false)
     doGravity()
     setTimeout(() => {
-      if(checkWin()) return 
+      if(checkWin()) {
+        setWinner(player)
+      }
       else { 
         setTurn(true)
         setPlayer(player === 'X' ? 'O' : 'X')
@@ -103,6 +106,11 @@ function App() {
     )
   }
   
+  const winnerMessage = () => {
+    return (
+      <div>Ganador jugador { winner } </div>
+    )
+  }
   return (
     <>
       <header className='header'>
@@ -115,6 +123,8 @@ function App() {
           }
         </h2>
         { drawBoard() }
+        { winner ? winnerMessage() : null }
+        <button>Reiniciar</button>
       </main>
     </>
   );
