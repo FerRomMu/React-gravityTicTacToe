@@ -91,3 +91,25 @@ main {
   color: #4A98F7;
   border-color: #4A98F7;
 }
+
+.fall {
+  transform: translateY(136px);
+}
+
+.winner-message {
+  position: absolute;
+  font-size: 4em;
+  font-weight: bold;
+  color: #238636;
+}
+
+.winner-message::before {
+  content: ""; /* no contenido */
+  position: absolute; /* para posicionarlo en relación al h1 */
+  z-index: -1; /* para que aparezca debajo del h1 */
+  top: 0; /* arriba del h1*/
+  left: 0; /* a la izquierda del h1 */
+  width: 100%; /* ancho */
+  height: 100%; /* alto */
+  box-shadow: 0 0 5px #ff0; /* sombra */
+}

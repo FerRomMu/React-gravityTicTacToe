@@ -97,7 +97,7 @@ function App() {
     return (
       <div className='row'> { 
         f.map((cell, i) => {
-          return <div className='cell' onClick={() => cellClick(r, i) }>
+          return <div className={'cell'} onClick={() => cellClick(r, i) }>
               <p>{ cell }</p>
             </div>
         })
@@ -108,7 +108,7 @@ function App() {
   
   const winnerMessage = () => {
     return (
-      <div>Ganador jugador { winner } </div>
+      <div className='winner-message'>Ganador jugador { winner } </div>
     )
   }
 
