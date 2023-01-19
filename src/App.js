@@ -3,28 +3,54 @@ import React, { useState } from 'react';
 
 function App() {
 
-  let [isTurn, setTurn] = useState(true)
-  let [player, setPlayer] = useState('X')
+  const [isTurn, setTurn] = useState(true)
+  const [player, setPlayer] = useState('X')
+  const [boardState, setState] = useState([
+    (Array(3).fill(' ')),
+    (Array(3).fill(' ')),
+    (Array(3).fill(' '))
+  ])
 
   const cellClick = (r,c) => {
     if(!isTurn) return
+    if(isInUse(r,c)) return
     changeState(r,c)
     setTurn(false)
     doGravity()
-    if(checkWin()) return 
-    else { 
-      setTurn(true)
-      setPlayer(player === 'X' ? 'O' : 'X')
-    }
+    setTimeout(() => {
+      if(checkWin()) return 
+      else { 
+        setTurn(true)
+        setPlayer(player === 'X' ? 'O' : 'X')
+      }
+    }, 300)
+  }
+
+  const isInUse = (r,c) => {
+    return boardState[r][c] !== ' '
   }
 
   const doGravity = () => {
+    let board = [...boardState]
+    fall(board,2)
+    fall(board,1)
+    setState(board)
+  }
 
+  const fall = (b, j) => {
+    b[j].forEach( (v,i, a) => {
+      if (v === ' ' &&
+      b[j-1][i] !== ' ') {
+        a[i] = b[j-1][i]
+        b[j-1][i] = ' '
+      }
+    })
   }
 
   const checkWin = () => {
     return false
   }
+
   const changeState = (r,c) => {
     let newState = [...boardState]
     newState[r][c] = player
@@ -53,12 +79,6 @@ function App() {
       </div>
     )
   }
-
-  const [boardState, setState] = useState([
-                (Array(3).fill('  ')),
-                (Array(3).fill('  ')),
-                (Array(3).fill('  '))
-              ])
   
   return (
     <>
