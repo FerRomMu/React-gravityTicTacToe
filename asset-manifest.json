@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/React-gravityTicTacToe/static/css/main.4b81cd29.css",
+    "main.js": "/React-gravityTicTacToe/static/js/main.2875392f.js",
+    "index.html": "/React-gravityTicTacToe/index.html",
+    "main.4b81cd29.css.map": "/React-gravityTicTacToe/static/css/main.4b81cd29.css.map",
+    "main.2875392f.js.map": "/React-gravityTicTacToe/static/js/main.2875392f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4b81cd29.css",
+    "static/js/main.2875392f.js"
+  ]
+}
