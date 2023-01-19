@@ -48,7 +48,30 @@ function App() {
   }
 
   const checkWin = () => {
-    return false
+    return checkVertical() || checkHorizontal(boardState) || checkDiagonal()
+  }
+
+  const checkVertical = () => {
+    let a = [[boardState[0][0],boardState[1][0],boardState[2][0]],
+             [boardState[0][1],boardState[1][1],boardState[2][1]],
+             [boardState[0][2],boardState[1][2],boardState[2][2]]]
+    return checkHorizontal(a)
+  }
+
+  const checkHorizontal = (a) => {
+    return a.some( arr => {
+      return arr.every(v => v === 'X') ||
+             arr.every(v => v === 'O')
+    })
+  }
+
+  const checkDiagonal = () => {
+    let d1 = [boardState[0][0],boardState[1][1],boardState[2][2]]
+    let d2 = [boardState[0][2],boardState[1][1],boardState[2][0]]
+    return d1.every(v => v === 'X') ||
+           d1.every(v => v === 'O') ||
+           d2.every(v => v === 'X') ||
+           d2.every(v => v === 'O')
   }
 
   const changeState = (r,c) => {
