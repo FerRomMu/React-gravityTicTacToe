@@ -135,7 +135,7 @@ function App() {
         </h2>
         { drawBoard() }
         { winner ? winnerMessage() : null }
-        <button onClick={() => reset()}>Reiniciar</button>
+        <button className='reset-btn' onClick={() => reset()}>Reiniciar</button>
       </main>
     </>
   );

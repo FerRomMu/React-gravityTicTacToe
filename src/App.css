@@ -1,16 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan&display=swap');
+
 * {
   margin: 0;
   box-sizing: content-box;
+  font-family: 'League Spartan', sans-serif;
 }
 
 .header {
   height: 40px;
   padding: 10px;
+  background-color: #0d1117;
 }
 
 .title {
-  color: #c6cdd5;
+  margin-top: 10px;
+  color: #4A98F7;
   text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.title::before {
+  content: " ";
+  width: 272px;
+  height: 55px;
+  top: -15px;
+  transform: translate(-20px,0);
+  background-color: #161b22;
+  border: 2px solid #89929b;
+  border-radius: 7px;
+  display: inline-block;
+  position: absolute;
+  z-index: -1;
 }
 
 main {
@@ -52,4 +73,21 @@ main {
 .turn-message {
   color: #c6cdd5;
   margin-bottom: 10px;
+}
+
+.reset-btn {
+  font-size: 1em;
+  background-color: #161b22;
+  color: #c6cdd5;
+  outline: none;
+  border: 1px solid #89929b;
+  border-radius: 7px;
+  padding: 10px 20px;
+  margin: 10px;
+  transition: 0.6s ease;
+}
+
+.reset-btn:hover {
+  color: #4A98F7;
+  border-color: #4A98F7;
 }
