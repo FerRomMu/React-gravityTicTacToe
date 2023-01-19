@@ -1,6 +1,8 @@
 import './App.css';
 import React, { useState } from 'react';
 import Board from './components/Board';
+import WinnerMessage from './components/WinnerMessage.jsx';
+import ResetBtn from './components/ResetBtn';
 
 function App() {
 
@@ -12,23 +14,6 @@ function App() {
     (Array(3).fill(' ')),
     (Array(3).fill(' '))
   ])
-
-  const winnerMessage = () => {
-    return (
-      <div className='winner-message'>Ganador jugador { winner } </div>
-    )
-  }
-  
-  const reset = () => {
-    setState([
-      (Array(3).fill(' ')),
-      (Array(3).fill(' ')),
-      (Array(3).fill(' '))
-    ])
-    setWinner(null)
-    setTurn(true)
-  }
-
   return (
     <>
       <header className='header'>
@@ -45,8 +30,8 @@ function App() {
                isTurn={isTurn} setTurn={setTurn}
                boardState={boardState} setState={setState}
         />
-        { winner ? winnerMessage() : null }
-        <button className='reset-btn' onClick={() => reset()}>Reiniciar</button>
+        { winner && <WinnerMessage winner={ winner }/>}
+        <ResetBtn setState={setState} setWinner={setWinner} setTurn={setTurn}/>
       </main>
     </>
   );
