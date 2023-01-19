@@ -1,26 +1,36 @@
 import './App.css';
 
-const tablero = Array(3).fill(Array(3).fill('  '))
+const board = [
+                (Array(3).fill('  ')),
+                (Array(3).fill('  ')),
+                (Array(3).fill('  '))
+              ]
 const isTurn = true
-const jugador = 'X'
+const player = 'X'
 
-const drawFila = (f) => {
-  return <div className='fila'> { 
-    f.map((celda) => {
-      return <div className='celda'><p>{celda}</p></div>
+
+const drawRow = (f, r) => {
+  return <div className='row'> { 
+    f.map((cell, i) => {
+      return <div className='cell' onClick={() => cellClick(r, i) }><p>{cell}</p></div>
     })
   }
   </div>
 }
 
-const drawTablero = () => {
+const drawBoard = () => {
   return (
-    <section className="tablero">
-      { tablero.map((fila) => {
-        return drawFila(fila)
+    <section className="board">
+      { board.map((row, i) => {
+        return drawRow(row, i)
       })}
     </section>
   )
+}
+
+const cellClick = (r,c) => {
+  if(!isTurn) return
+  board[r][c] = player
 }
 
 function App() {
@@ -32,10 +42,10 @@ function App() {
       <main>
         <h2 className='turn-message'> 
           { isTurn? 
-              "Es turno de " + jugador : " Resolviendo turno... "
+              "Es turno de " + player : " Resolviendo turno... "
           }
         </h2>
-        { drawTablero() }
+        { drawBoard() }
       </main>
     </>
   );
