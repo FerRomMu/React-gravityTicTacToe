@@ -1,39 +1,65 @@
 import './App.css';
+import React, { useState } from 'react';
 
-const board = [
+function App() {
+
+  let [isTurn, setTurn] = useState(true)
+  let [player, setPlayer] = useState('X')
+
+  const cellClick = (r,c) => {
+    if(!isTurn) return
+    changeState(r,c)
+    setTurn(false)
+    doGravity()
+    if(checkWin()) return 
+    else { 
+      setTurn(true)
+      setPlayer(player === 'X' ? 'O' : 'X')
+    }
+  }
+
+  const doGravity = () => {
+
+  }
+
+  const checkWin = () => {
+    return false
+  }
+  const changeState = (r,c) => {
+    let newState = [...boardState]
+    newState[r][c] = player
+    setState(newState)
+  }
+
+  const drawBoard = () => {
+    return (
+      <section className="board">
+        { boardState.map((row, i) => {
+          return drawRow(row, i)
+        })}
+      </section>
+    )
+  }
+
+  const drawRow = (f, r) => {
+    return (
+      <div className='row'> { 
+        f.map((cell, i) => {
+          return <div className='cell' onClick={() => cellClick(r, i) }>
+              <p>{ cell }</p>
+            </div>
+        })
+      }
+      </div>
+    )
+  }
+
+  const [boardState, setState] = useState([
                 (Array(3).fill('  ')),
                 (Array(3).fill('  ')),
                 (Array(3).fill('  '))
-              ]
-const isTurn = true
-const player = 'X'
-
-
-const drawRow = (f, r) => {
-  return <div className='row'> { 
-    f.map((cell, i) => {
-      return <div className='cell' onClick={() => cellClick(r, i) }><p>{cell}</p></div>
-    })
-  }
-  </div>
-}
-
-const drawBoard = () => {
-  return (
-    <section className="board">
-      { board.map((row, i) => {
-        return drawRow(row, i)
-      })}
-    </section>
-  )
-}
-
-const cellClick = (r,c) => {
-  if(!isTurn) return
-  board[r][c] = player
-}
-
-function App() {
+              ])
+  
   return (
     <>
       <header className='header'>
