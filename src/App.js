@@ -111,6 +111,17 @@ function App() {
       <div>Ganador jugador { winner } </div>
     )
   }
+
+  const reset = () => {
+    setState([
+      (Array(3).fill(' ')),
+      (Array(3).fill(' ')),
+      (Array(3).fill(' '))
+    ])
+    setWinner(null)
+    setTurn(true)
+  }
+
   return (
     <>
       <header className='header'>
@@ -124,7 +135,7 @@ function App() {
         </h2>
         { drawBoard() }
         { winner ? winnerMessage() : null }
-        <button>Reiniciar</button>
+        <button onClick={() => reset()}>Reiniciar</button>
       </main>
     </>
   );
