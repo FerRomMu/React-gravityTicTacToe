@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import Row from './Row';
 
 //Componente de tablero
@@ -9,8 +8,8 @@ const Board = ({player, setPlayer, setWinner, isTurn, setTurn, boardState, setSt
     if(isInUse(r,c)) return
     setTurn(false)
     changeState(r,c)
-    doGravity()
     setTimeout(() => {
+      doGravity()
       if(checkWin()) {
         setWinner(player)
       }
