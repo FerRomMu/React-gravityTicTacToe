@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/React-gravityTicTacToe/static/css/main.a23ff12b.css",
+    "main.css": "/React-gravityTicTacToe/static/css/main.3d54de42.css",
     "main.js": "/React-gravityTicTacToe/static/js/main.76997385.js",
     "index.html": "/React-gravityTicTacToe/index.html",
-    "main.a23ff12b.css.map": "/React-gravityTicTacToe/static/css/main.a23ff12b.css.map",
+    "main.3d54de42.css.map": "/React-gravityTicTacToe/static/css/main.3d54de42.css.map",
     "main.76997385.js.map": "/React-gravityTicTacToe/static/js/main.76997385.js.map"
   },
   "entrypoints": [
-    "static/css/main.a23ff12b.css",
+    "static/css/main.3d54de42.css",
     "static/js/main.76997385.js"
   ]
 }
