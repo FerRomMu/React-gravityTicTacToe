@@ -44,6 +44,7 @@ main {
 }
 
 .board {
+  height: 402px;
   border: 3px solid #89929b;
   border-radius: 7px;
 }
@@ -57,7 +58,7 @@ main {
   height: 1em;
   color: #c6cdd5;
   font-size: 2em;
-  border: 2px solid #89929b;
+  border: 1px solid #89929b;
   background-color: #161b22;
   padding: 50px;
   float: left;
@@ -103,13 +104,9 @@ main {
   color: #238636;
 }
 
-.winner-message::before {
-  content: ""; /* no contenido */
-  position: absolute; /* para posicionarlo en relación al h1 */
-  z-index: -1; /* para que aparezca debajo del h1 */
-  top: 0; /* arriba del h1*/
-  left: 0; /* a la izquierda del h1 */
-  width: 100%; /* ancho */
-  height: 100%; /* alto */
-  box-shadow: 0 0 5px #ff0; /* sombra */
+@media (max-width:430px) {
+  .board {
+    border-width: 1px;
+  }
+
 }
